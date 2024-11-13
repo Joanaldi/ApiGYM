@@ -4043,4 +4043,19 @@ body{min-width:992px!important}
 
 .footer,.page-header,.subscribe{background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/bg.jpg);background-position:top;background-repeat:no-repeat;background-size:cover}
 
+/* Estilo para el botón flotante */
+#cartButton {
+    position: fixed;
+    bottom: 20px; /* Distancia desde el fondo de la pantalla */
+    left: 20px; /* Distancia desde la derecha de la pantalla */
+    z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
+}
+
+/* Puedes agregar más estilos personalizados para el botón */
+#cartButton {
+    border-radius: 20%; /* Hace que el botón tenga forma circular */
+    padding: 15px; /* Tamaño del botón */
+    font-size: 16px; /* Tamaño del texto */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del botón */
+}
 
