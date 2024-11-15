@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>APIGym</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4 bg-secondary">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                <a href="products.html" class="nav-item nav-link">Productos</a>
+                <a href="class.html" class="nav-item nav-link">Clases</a>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+
+                <!-- Mostrar nombre del usuario y sesión según estado de login -->
+                <span id="userGreeting" class="nav-item nav-link text-white ml-3"></span>
+                <a href="#" id="loginLink" class="nav-item nav-link text-white ml-3"></a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = localStorage.getItem('username');
+        const userGreeting = document.getElementById('userGreeting');
+        const loginLink = document.getElementById('loginLink');
+
+        if (username) {
+            // Si el usuario está logueado, muestra el nombre y el enlace de "Cerrar Sesión"
+            userGreeting.textContent = `Hola, ${username}`;
+            loginLink.textContent = "Cerrar Sesión";
+            loginLink.onclick = function() {
+                localStorage.removeItem('username');
+                window.location.href = "login.html";
+            };
+        } else {
+            // Si no está logueado, muestra "Iniciar Sesión"
+            userGreeting.textContent = "";
+            loginLink.textContent = "Iniciar Sesión";
+            loginLink.href = "login.html";
+        }
+    });
+</script>
+
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Nuestros Productos</h4>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<!-- Button to View Cart (Floating) -->
+<button onclick="scrollToCart()" class="btn btn-secondary m-3" id="cartButton">Ver Carrito</button>
+
+<!-- Cart Section -->
+<div id="cart" class="container border bg-light p-3" style="display: none;">
+    <h4 class="text-center">Carrito de Compras</h4>
+    <div id="cartItems"></div>
+    <h5>Total: €<span id="cartTotal">0.00</span></h5>
+    <button onclick="purchaseCart()" class="btn btn-success mt-3">Comprar</button>
+</div>
+
+
+
+
+    <!-- Products Section Start -->
+    <div class="container py-5">
+        <!-- Suplementos Alimenticios -->
+<div class="text-center mb-5">
+    <h4 class="text-primary font-weight-bold">Suplementos alimenticios</h4>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento1.jpg" alt="Proteína de suero">
+            <div class="card-body text-center">
+                <h5 class="card-title">Proteína de suero</h5>
+                <p class="card-text">Excelente fuente de proteína para mejorar el rendimiento.</p>
+                <h6>€30.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Proteína de suero', 30)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento2.jpg" alt="Barra energética">
+            <div class="card-body text-center">
+                <h5 class="card-title">Barra energética</h5>
+                <p class="card-text">Aporta energía instantánea para tus entrenamientos.</p>
+                <h6>€5.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Barra energética', 5)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento3.jpg" alt="BCAA">
+            <div class="card-body text-center">
+                <h5 class="card-title">BCAA</h5>
+                <p class="card-text">Aminoácidos para recuperación muscular post-entrenamiento.</p>
+                <h6>€20.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('BCAA', 20)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <!-- Nuevos suplementos -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento4.jpg" alt="Creatina">
+            <div class="card-body text-center">
+                <h5 class="card-title">Creatina</h5>
+                <p class="card-text">Mejora el rendimiento en ejercicios de alta intensidad.</p>
+                <h6>€25.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Creatina', 25)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento5.jpg" alt="L-Carnitina">
+            <div class="card-body text-center">
+                <h5 class="card-title">L-Carnitina</h5>
+                <p class="card-text">Ayuda a la quema de grasa y mejora la energía durante el ejercicio.</p>
+                <h6>€15.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('L-Carnitina', 15)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento6.jpg" alt="Glutamina">
+            <div class="card-body text-center">
+                <h5 class="card-title">Glutamina</h5>
+                <p class="card-text">Ideal para la recuperación muscular y la salud intestinal.</p>
+                <h6>€18.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Glutamina', 18)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento7.jpg" alt="Pre-entrenamiento">
+            <div class="card-body text-center">
+                <h5 class="card-title">Pre-entrenamiento</h5>
+                <p class="card-text">Mejora tu energía y enfoque antes de entrenar.</p>
+                <h6>€22.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Pre-entrenamiento', 22)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento8.jpg" alt="Proteína vegetal">
+            <div class="card-body text-center">
+                <h5 class="card-title">Proteína vegetal</h5>
+                <p class="card-text">Alternativa a las proteínas de suero, ideal para veganos.</p>
+                <h6>€28.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Proteína vegetal', 28)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/suplemento9.jpg" alt="Aceite de pescado">
+            <div class="card-body text-center">
+                <h5 class="card-title">Aceite de pescado</h5>
+                <p class="card-text">Fuente rica en ácidos grasos omega-3 para la salud cardiovascular.</p>
+                <h6>€18.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Aceite de pescado', 18)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+       <!-- Ropa de Gimnasio -->
+<div class="text-center my-5">
+    <h4 class="text-primary font-weight-bold">Ropa y merchandising</h4>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa1.jpg" alt="Camiseta de gimnasio">
+            <div class="card-body text-center">
+                <h5 class="card-title">Camiseta de gimnasio</h5>
+                <p class="card-text">Ligera y cómoda para tus entrenamientos.</p>
+                <h6>€20.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Camiseta de gimnasio', 20)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa2.jpg" alt="Sudadera APIGym">
+            <div class="card-body text-center">
+                <h5 class="card-title">Sudadera APIGym</h5>
+                <p class="card-text">Estilo y comodidad para antes y después del entrenamiento.</p>
+                <h6>€35.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Sudadera APIGym', 35)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <!-- Nuevas prendas -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa3.jpg" alt="Pantalones deportivos">
+            <div class="card-body text-center">
+                <h5 class="card-title">Pantalones deportivos</h5>
+                <p class="card-text">Cómodos y transpirables para todo tipo de entrenamientos.</p>
+                <h6>€28.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Pantalones deportivos', 28)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa4.jpg" alt="Leggings deportivos">
+            <div class="card-body text-center">
+                <h5 class="card-title">Leggings deportivos</h5>
+                <p class="card-text">Perfectos para entrenamientos de alta intensidad.</p>
+                <h6>€22.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Leggings deportivos', 22)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa5.jpg" alt="Camiseta deportiva">
+            <div class="card-body text-center">
+                <h5 class="card-title">Camiseta deportiva</h5>
+                <p class="card-text">Comodidad y flexibilidad para tus entrenamientos diarios.</p>
+                <h6>€18.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Camiseta deportiva', 18)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa6.jpg" alt="Gorra de gimnasio">
+            <div class="card-body text-center">
+                <h5 class="card-title">Gorra de gimnasio</h5>
+                <p class="card-text">Ideal para protegerte del sol durante los entrenamientos al aire libre.</p>
+                <h6>€15.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Gorra de gimnasio', 15)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa7.jpg" alt="Chaqueta de gimnasio">
+            <div class="card-body text-center">
+                <h5 class="card-title">Chaqueta de gimnasio</h5>
+                <p class="card-text">Perfecta para los días más fríos antes o después del entrenamiento.</p>
+                <h6>€40.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Chaqueta de gimnasio', 40)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa8.jpg" alt="Mochila deportiva">
+            <div class="card-body text-center">
+                <h5 class="card-title">Mochila deportiva</h5>
+                <p class="card-text">Práctica y espaciosa para llevar todo tu equipo de entrenamiento.</p>
+                <h6>€25.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Mochila deportiva', 25)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/ropa11.jpg" alt="Top deportivo">
+            <div class="card-body text-center">
+                <h5 class="card-title">Top deportivo</h5>
+                <p class="card-text">Perfecto para tus entrenamientos, cómodo y transpirable.</p>
+                <h6>€18.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Top deportivo', 18)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>  
+</div>
+
+    <!-- Complementos de Gimnasio -->
+<div class="text-center my-5">
+    <h4 class="text-primary font-weight-bold">Complementos</h4>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/" alt="Guantes de entrenamiento">
+            <div class="card-body text-center">
+                <h5 class="card-title">Guantes de entrenamiento</h5>
+                <p class="card-text">Protección y agarre para tus sesiones de pesas.</p>
+                <h6>€15.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Guantes de entrenamiento', 15)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/complemento2.jpg" alt="Cinturón de levantamiento">
+            <div class="card-body text-center">
+                <h5 class="card-title">Cinturón de levantamiento</h5>
+                <p class="card-text">Para soporte adicional en levantamientos pesados.</p>
+                <h6>€25.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Cinturón de levantamiento', 25)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/complemento3.jpg" alt="Botellas de agua deportivas">
+            <div class="card-body text-center">
+                <h5 class="card-title">Botellas de agua deportivas</h5>
+                <p class="card-text">Botella reutilizable ideal para mantenerse hidratado durante el entrenamiento.</p>
+                <h6>€12.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Botellas de agua deportivas', 12)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/complemento4.jpg" alt="Tiras de muñeca">
+            <div class="card-body text-center">
+                <h5 class="card-title">Tiras de muñeca</h5>
+                <p class="card-text">Proporcionan soporte y protección para tus muñecas durante el levantamiento de pesas.</p>
+                <h6>€8.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Tiras de muñeca', 8)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/complemento5.jpg" alt="Cuerda para saltar">
+            <div class="card-body text-center">
+                <h5 class="card-title">Cuerda para saltar</h5>
+                <p class="card-text">Ideal para mejorar la resistencia cardiovascular y coordinación.</p>
+                <h6>€10.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Cuerda para saltar', 10)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <img class="card-img-top" src="img/complemento6.jpg" alt="Bandas elásticas de resistencia">
+            <div class="card-body text-center">
+                <h5 class="card-title">Bandas elásticas de resistencia</h5>
+                <p class="card-text">Perfectas para aumentar la resistencia en ejercicios de fuerza y flexibilidad.</p>
+                <h6>€18.00</h6>
+                <button class="btn btn-primary" onclick="addToCart('Bandas elásticas de resistencia', 18)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Products Section End -->
+    
+
+    <!-- Footer Start -->
+    <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Contáctanos</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Plaza Torres Quevedo 1, Bilbao, Bizkaia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>944 456 789</p>
+                <p><i class="fa fa-envelope mr-2"></i>info@apigym.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Navega</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a class="text-white mb-2" href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                    <a class="text-white mb-2" href="feature.html" class="nav-item nav-link">Productos</a>
+                    <a class="text-white mb-2" href="class.html" class="nav-item nav-link">Clases</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Horario</h4>
+                <h5 class="text-white">Lunes - Viernes</h5>
+                <p>8:00 - 22:00</p>
+                <h5 class="text-white">Saturday - Sunday</h5>
+                <p>10:00 - 20:00</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="contact.html" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5">Únete</a>
+            </div> 
+        </div>
+        <div class="container border-top border-dark pt-5">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-white font-weight-bold" href="#">APIGym</a>. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+
+    <!-- Archivo de Carrito Externo -->
+    <script src="js/cart.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

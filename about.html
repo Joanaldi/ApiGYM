@@ -23,33 +23,54 @@
 
 <body class="bg-white">
     <!-- Navbar Start -->
-    <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="" class="navbar-brand">
-                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4 bg-secondary">
-                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                    <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
-                    <a href="feature.html" class="nav-item nav-link">Productos</a>
-                    <a href="class.html" class="nav-item nav-link">Clases</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Paginas</a>
-                        <div class="dropdown-menu text-capitalize">
-                            <a href="blog.html" class="dropdown-item">Blog</a>
-                            <a href="single.html" class="dropdown-item">Detalles</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
-                </div>
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4 bg-secondary">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                <a href="products.html" class="nav-item nav-link">Productos</a>
+                <a href="class.html" class="nav-item nav-link">Clases</a>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+
+                <!-- Mostrar nombre del usuario y sesión según estado de login -->
+                <span id="userGreeting" class="nav-item nav-link text-white ml-3"></span>
+                <a href="#" id="loginLink" class="nav-item nav-link text-white ml-3"></a>
             </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = localStorage.getItem('username');
+        const userGreeting = document.getElementById('userGreeting');
+        const loginLink = document.getElementById('loginLink');
+
+        if (username) {
+            // Si el usuario está logueado, muestra el nombre y el enlace de "Cerrar Sesión"
+            userGreeting.textContent = `Hola, ${username}`;
+            loginLink.textContent = "Cerrar Sesión";
+            loginLink.onclick = function() {
+                localStorage.removeItem('username');
+                window.location.href = "login.html";
+            };
+        } else {
+            // Si no está logueado, muestra "Iniciar Sesión"
+            userGreeting.textContent = "";
+            loginLink.textContent = "Iniciar Sesión";
+            loginLink.href = "login.html";
+        }
+    });
+</script>
+
 
 
     <!-- Page Header Start -->
