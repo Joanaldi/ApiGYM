@@ -23,33 +23,54 @@
 
 <body class="bg-white">
     <!-- Navbar Start -->
-    <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="" class="navbar-brand">
-                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnast</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4 bg-secondary">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="feature.html" class="nav-item nav-link">Our Features</a>
-                    <a href="class.html" class="nav-item nav-link">Classes</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu text-capitalize">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
-                </div>
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4 bg-secondary">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                <a href="products.html" class="nav-item nav-link">Productos</a>
+                <a href="class.html" class="nav-item nav-link">Clases</a>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+
+                <!-- Mostrar nombre del usuario y sesión según estado de login -->
+                <span id="userGreeting" class="nav-item nav-link text-white ml-3"></span>
+                <a href="#" id="loginLink" class="nav-item nav-link text-white ml-3"></a>
             </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = localStorage.getItem('username');
+        const userGreeting = document.getElementById('userGreeting');
+        const loginLink = document.getElementById('loginLink');
+
+        if (username) {
+            // Si el usuario está logueado, muestra el nombre y el enlace de "Cerrar Sesión"
+            userGreeting.textContent = `Hola, ${username}`;
+            loginLink.textContent = "Cerrar Sesión";
+            loginLink.onclick = function() {
+                localStorage.removeItem('username');
+                window.location.href = "login.html";
+            };
+        } else {
+            // Si no está logueado, muestra "Iniciar Sesión"
+            userGreeting.textContent = "";
+            loginLink.textContent = "Iniciar Sesión";
+            loginLink.href = "login.html";
+        }
+    });
+</script>
+
 
 
     <!-- Page Header Start -->
@@ -128,10 +149,10 @@
     <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-primary mb-4">Get In Touch</h4>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                <h4 class="text-primary mb-4">Contáctanos</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Plaza Torres Quevedo 1, Bilbao, Bizkaia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>944 456 789</p>
+                <p><i class="fa fa-envelope mr-2"></i>info@apigym.com</p>
                 <div class="d-flex justify-content-start mt-4">
                     <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -140,37 +161,28 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-primary mb-4">Quick Links</h4>
+                <h4 class="text-primary mb-4">Navega</h4>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Features</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Classes</a>
-                    <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                    <a class="text-white mb-2" href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a class="text-white mb-2" href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                    <a class="text-white mb-2" href="feature.html" class="nav-item nav-link">Productos</a>
+                    <a class="text-white mb-2" href="class.html" class="nav-item nav-link">Clases</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-primary mb-4">Popular Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Features</a>
-                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Classes</a>
-                    <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-primary mb-4">Opening Hours</h4>
-                <h5 class="text-white">Monday - Friday</h5>
-                <p>8.00 AM - 8.00 PM</p>
+                <h4 class="text-primary mb-4">Horario</h4>
+                <h5 class="text-white">Lunes - Viernes</h5>
+                <p>8:00 - 22:00</p>
                 <h5 class="text-white">Saturday - Sunday</h5>
-                <p>2.00 PM - 8.00 PM</p>
+                <p>10:00 - 20:00</p>
             </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="contact.html" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5">Únete</a>
+            </div> 
         </div>
         <div class="container border-top border-dark pt-5">
             <p class="m-0 text-center text-white">
-                &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by
-                <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+                &copy; <a class="text-white font-weight-bold" href="#">APIGym</a>. All Rights Reserved.
             </p>
         </div>
     </div>
