@@ -23,33 +23,54 @@
 
 <body class="bg-white">
     <!-- Navbar Start -->
-    <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="" class="navbar-brand">
-                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4 bg-secondary">
-                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                    <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
-                    <a href="feature.html" class="nav-item nav-link">Productos</a>
-                    <a href="class.html" class="nav-item nav-link">Clases</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Paginas</a>
-                        <div class="dropdown-menu text-capitalize">
-                            <a href="blog.html" class="dropdown-item">Blog</a>
-                            <a href="single.html" class="dropdown-item">Detalles</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
-                </div>
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">APIGym</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4 bg-secondary">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Sobre nosotros</a>
+                <a href="products.html" class="nav-item nav-link">Productos</a>
+                <a href="class.html" class="nav-item nav-link">Clases</a>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+
+                <!-- Mostrar nombre del usuario y sesión según estado de login -->
+                <span id="userGreeting" class="nav-item nav-link text-white ml-3"></span>
+                <a href="#" id="loginLink" class="nav-item nav-link text-white ml-3"></a>
             </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const username = localStorage.getItem('username');
+        const userGreeting = document.getElementById('userGreeting');
+        const loginLink = document.getElementById('loginLink');
+
+        if (username) {
+            // Si el usuario está logueado, muestra el nombre y el enlace de "Cerrar Sesión"
+            userGreeting.textContent = `Hola, ${username}`;
+            loginLink.textContent = "Cerrar Sesión";
+            loginLink.onclick = function() {
+                localStorage.removeItem('username');
+                window.location.href = "login.html";
+            };
+        } else {
+            // Si no está logueado, muestra "Iniciar Sesión"
+            userGreeting.textContent = "";
+            loginLink.textContent = "Iniciar Sesión";
+            loginLink.href = "login.html";
+        }
+    });
+</script>
+
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
@@ -89,25 +110,25 @@
             <div class="col-md-6 p-0">
                 <div class="gym-class-box d-flex flex-column align-items-end justify-content-center bg-primary text-right text-white py-5 px-5">
                     <i class="flaticon-six-pack"></i>
-                    <h3 class="display-4 mb-3 text-white font-weight-bold"></h3>
+                    <h3 class="display-4 mb-3 text-white font-weight-bold">Transforma tu cuerpo Transforma tu vida</h3>
                     <p>
-                        
-                    </p>
+                        Ofrecemos todo lo que necesitas para alcanzar tus objetivos de salud y bienestar. Nuestra gran variedad de clases y ejercicios te acerca más a la mejor versión de ti mismo.                    </p>
                     <a href="contact.html" class="btn btn-lg btn-outline-light mt-4 px-4">Únete</a>
                 </div>
             </div>
             <div class="col-md-6 p-0">
                 <div class="gym-class-box d-flex flex-column align-items-start justify-content-center bg-secondary text-left text-white py-5 px-5">
                     <i class="flaticon-bodybuilding"></i>
-                    <h3 class="display-4 mb-3 text-white font-weight-bold"></h3>
+                    <h3 class="display-4 mb-3 text-white font-weight-bold">Tu mejor versión comienza aquí</h3>
                     <p>
-
+                        Nuestros ejercicios estan diseñados para ayudarte a desafiar tus límites. Con equipos de última tecnología, un ambiente motivador y la comunidad perfecta para crecer, ¡el cambio comienza hoy!
                     </p>
-                    <a href="contact.html" class="btn btn-lg btn-outline-light mt-4 px-4">Únete</a>
+                    <a href="about.html" class="btn btn-lg btn-outline-light mt-4 px-4">Conócenos</a>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- Gym Class End -->
 
 
@@ -176,70 +197,7 @@
     <!-- Features End -->
 
 
-    <!-- GYM Feature Start -->
-    <div class="container feature pt-5">
-        <div class="d-flex flex-column text-center mb-5">
-            <h4 class="text-primary font-weight-bold">¿Por qué elegirnos?</h4>
-            <h4 class="display-4 font-weight-bold">Beneficios de APIGym</h4>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5">
-                        <img class="img-fluid mb-3 mb-sm-0" src="img/feature-1.jpg" alt="Image">
-                        <i class="flaticon-barbell"></i>
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="font-weight-bold">Ejercicios en video</h4>
-                        <p>Todos nuestros ejercicos estan grabados en video para que puedas verlos tantas veces como quieras.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5">
-                        <img class="img-fluid mb-3 mb-sm-0" src="img/feature-2.jpg" alt="Image">
-                        <i class="flaticon-training"></i>
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="font-weight-bold">Calendario de ejercicios</h4>
-                        <p>Calendarizamos tus ejercicios con el fin de que mejores día a día y cumplas tus objetivos.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5">
-                        <img class="img-fluid mb-3 mb-sm-0" src="img/feature-3.jpg" alt="Image">
-                        <i class="flaticon-trends"></i>
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="font-weight-bold">Sigue tu desarrollo</h4>
-                        <p>Haz un seguimiento de tus estadisticas y mira tu progreso despues de cada entrenamiento.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <div class="row align-items-center">
-                    <div class="col-sm-5">
-                        <img class="img-fluid mb-3 mb-sm-0" src="img/feature-4.jpg" alt="Image">
-                        <i class="flaticon-support"></i>
-                    </div>
-                    <div class="col-sm-7">
-                        <h4 class="font-weight-bold">Comunidad</h4>
-                        <p>Unete a nuestra comunidad, haz compañeros de entrenamientos, pide consejos...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- GYM Feature End -->
-
-
- 
-    
-
-
+   
     <!-- Footer Start -->
     <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
         <div class="row pt-5">
@@ -268,7 +226,7 @@
                 <h4 class="text-primary mb-4">Horario</h4>
                 <h5 class="text-white">Lunes - Viernes</h5>
                 <p>8:00 - 22:00</p>
-                <h5 class="text-white">Saturday - Sunday</h5>
+                <h5 class="text-white">Sábados - Domingos y festivos</h5>
                 <p>10:00 - 20:00</p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
