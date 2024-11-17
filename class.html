@@ -76,11 +76,9 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Gym Classes</h4>
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Clases y ejercicos</h4>
             <div class="d-inline-flex">
-                <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
-                <p class="m-0 text-white px-2">/</p>
-                <p class="m-0 text-white">Gym Classes</p>
+                
             </div>
         </div>
     </div>
@@ -93,6 +91,7 @@
         <div class="d-flex flex-column text-center mb-5">
             <h4 class="text-primary font-weight-bold">Horario de Categorías</h4>
             <h4 class="display-4 font-weight-bold">Plan Semanal</h4>
+            <p>Apuntate a una de nuestras clases con un solo click</p>
         </div>
     
         <!-- Botones de Categorías -->
@@ -123,45 +122,49 @@
                 <tbody class="text-center">
                     <tr>
                         <th class="bg-secondary text-white align-middle">8:00 - 10:00</th>
-                        <td class="pecho">Pecho<br><small>Marcos Martín</small></td>
-                        <td class="espalda">Espalda<br><small>Diego García</small></td>
-                        <td class="piernas">Piernas<br><small>Alvaro Blasco</small></td>
-                        <td class="hombros">Hombros<br><small>Eduardo Rocha</small></td>
-                        <td class="brazos">Brazos<br><small>Marcos Martín</small></td>
-                        <td class="cardio">Cardio<br><small>Diego García</small></td>
+                        <td id="clase_1" class="pecho" onclick="apuntarse('Lunes', '8:00 - 10:00', 'Pecho', 1)">Pecho<br><small>Marcos Martín</small></td>
+                        <td id="clase_2" class="espalda" onclick="apuntarse('Martes', '8:00 - 10:00', 'Espalda', 2)">Espalda<br><small>Diego García</small></td>
+                        <td id="clase_3" class="piernas" onclick="apuntarse('Miércoles', '8:00 - 10:00', 'Piernas', 3)">Piernas<br><small>Alvaro Blasco</small></td>
+                        <td id="clase_4" class="hombros" onclick="apuntarse('Jueves', '8:00 - 10:00', 'Hombros', 4)">Hombros<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_5" class="brazos" onclick="apuntarse('Viernes', '8:00 - 10:00', 'Brazos', 5)">Brazos<br><small>Marcos Martín</small></td>
+                        <td id="clase_6" class="cardio" onclick="apuntarse('Sábado', '8:00 - 10:00', 'Cardio', 6)">Cardio<br><small>Diego García</small></td>
                         <td class="descanso">Descanso<br><small>-</small></td>
                     </tr>
+                    
                     <tr>
                         <th class="bg-secondary text-white align-middle">10:00 - 12:00</th>
-                        <td class="cardio">Cardio<br><small>Diego García</small></td>
-                        <td class="piernas">Piernas<br><small>Alvaro Blasco</small></td>
-                        <td class="brazos">Brazos<br><small>Eduardo Rocha</small></td>
-                        <td class="pecho">Pecho<br><small>Marcos Martín</small></td>
-                        <td class="hombros">Hombros<br><small>Diego García</small></td>
-                        <td class="espalda">Espalda<br><small>Marcos Martín</small></td>
+                        <td id="clase_7" class="cardio" onclick="apuntarse('Lunes', '10:00 - 12:00', 'Cardio', 7)">Cardio<br><small>Diego García</small></td>
+                        <td id="clase_8" class="piernas" onclick="apuntarse('Martes', '10:00 - 12:00', 'Piernas', 8)">Piernas<br><small>Alvaro Blasco</small></td>
+                        <td id="clase_9" class="brazos" onclick="apuntarse('Miércoles', '10:00 - 12:00', 'Brazos', 9)">Brazos<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_10" class="pecho" onclick="apuntarse('Jueves', '10:00 - 12:00', 'Pecho', 10)">Pecho<br><small>Marcos Martín</small></td>
+                        <td id="clase_11" class="hombros" onclick="apuntarse('Viernes', '10:00 - 12:00', 'Hombros', 11)">Hombros<br><small>Diego García</small></td>
+                        <td id="clase_12" class="espalda" onclick="apuntarse('Sábado', '10:00 - 12:00', 'Espalda', 12)">Espalda<br><small>Marcos Martín</small></td>
                         <td class="descanso">Descanso<br><small>-</small></td>
                     </tr>
+                    
                     <tr>
                         <th class="bg-secondary text-white align-middle">12:00 - 14:00</th>
-                        <td class="hombros">Hombros<br><small>Eduardo Rocha</small></td>
-                        <td class="pecho">Pecho<br><small>Marcos Martín</small></td>
-                        <td class="espalda">Espalda<br><small>Diego García</small></td>
-                        <td class="cardio">Cardio<br><small>Alvaro Blasco</small></td>
-                        <td class="piernas">Piernas<br><small>Alvaro Blasco</small></td>
-                        <td class="brazos">Brazos<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_13" class="hombros" onclick="apuntarse('Lunes', '12:00 - 14:00', 'Hombros', 13)">Hombros<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_14" class="pecho" onclick="apuntarse('Martes', '12:00 - 14:00', 'Pecho', 14)">Pecho<br><small>Marcos Martín</small></td>
+                        <td id="clase_15" class="espalda" onclick="apuntarse('Miércoles', '12:00 - 14:00', 'Espalda', 15)">Espalda<br><small>Diego García</small></td>
+                        <td id="clase_16" class="cardio" onclick="apuntarse('Jueves', '12:00 - 14:00', 'Cardio', 16)">Cardio<br><small>Alvaro Blasco</small></td>
+                        <td id="clase_17" class="piernas" onclick="apuntarse('Viernes', '12:00 - 14:00', 'Piernas', 17)">Piernas<br><small>Alvaro Blasco</small></td>
+                        <td id="clase_18" class="brazos" onclick="apuntarse('Sábado', '12:00 - 14:00', 'Brazos', 18)">Brazos<br><small>Eduardo Rocha</small></td>
                         <td class="descanso">Descanso<br><small>-</small></td>
                     </tr>
+                    
                     <tr>
                         <th class="bg-secondary text-white align-middle">18:00 - 20:00</th>
-                        <td class="brazos">Brazos<br><small>Marcos Martín</small></td>
-                        <td class="cardio">Cardio<br><small>Diego García</small></td>
-                        <td class="hombros">Hombros<br><small>Eduardo Rocha</small></td>
-                        <td class="espalda">Espalda<br><small>Marcos Martín</small></td>
-                        <td class="pecho">Pecho<br><small>Eduardo Rocha</small></td>
-                        <td class="piernas">Piernas<br><small>Alvaro Blasco</small></td>
+                        <td id="clase_19" class="brazos" onclick="apuntarse('Lunes', '18:00 - 20:00', 'Brazos', 19)">Brazos<br><small>Marcos Martín</small></td>
+                        <td id="clase_20" class="cardio" onclick="apuntarse('Martes', '18:00 - 20:00', 'Cardio', 20)">Cardio<br><small>Diego García</small></td>
+                        <td id="clase_21" class="hombros" onclick="apuntarse('Miércoles', '18:00 - 20:00', 'Hombros', 21)">Hombros<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_22" class="espalda" onclick="apuntarse('Jueves', '18:00 - 20:00', 'Espalda', 22)">Espalda<br><small>Marcos Martín</small></td>
+                        <td id="clase_23" class="pecho" onclick="apuntarse('Viernes', '18:00 - 20:00', 'Pecho', 23)">Pecho<br><small>Eduardo Rocha</small></td>
+                        <td id="clase_24" class="piernas" onclick="apuntarse('Sábado', '18:00 - 20:00', 'Piernas', 24)">Piernas<br><small>Alvaro Blasco</small></td>
                         <td class="descanso">Descanso<br><small>-</small></td>
                     </tr>
-                </tbody>
+                    
+                </tbody>                
             </table>
             
         </div>
@@ -169,23 +172,99 @@
     
     <!-- JavaScript para Filtrar Categorías -->
     <script>
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-                const cells = document.querySelectorAll('td');
-    
-                // Resalta las celdas de la categoría seleccionada
-                cells.forEach(cell => {
-                    if (cell.classList.contains(category)) {
-                        cell.style.backgroundColor = '#ffe4b5';
-                    } else {
-                        cell.style.backgroundColor = '';
-                    }
-                });
+// Función para apuntarse a una clase
+function apuntarse(dia, hora, clase, idClase) {
+    const username = localStorage.getItem('username');
+    if (username) {
+        // Obtener las clases reservadas del localStorage
+        const userClasses = JSON.parse(localStorage.getItem('userClasses')) || {};
+
+        if (!userClasses[username]) {
+            userClasses[username] = [];
+        }
+
+        // Verificar si la clase ya está reservada
+        const existingClass = userClasses[username].find(c => c.idClase === idClase);
+
+        const cell = document.getElementById(`clase_${idClase}`);
+        
+        if (existingClass) {
+            // Si la clase ya está reservada, cancelarla (eliminar del localStorage y restablecer el estilo)
+            const updatedClasses = userClasses[username].filter(c => c.idClase !== idClase);
+            userClasses[username] = updatedClasses;
+            localStorage.setItem('userClasses', JSON.stringify(userClasses));
+
+            // Cambiar el color de la celda a su estado original (sin verde)
+            cell.style.backgroundColor = ''; // Restablecer color de fondo
+            cell.style.color = ''; // Restablecer color del texto
+            alert(`Has cancelado tu reserva en la clase de ${clase} el ${dia} a las ${hora}.`);
+        } else {
+            // Si la clase no está reservada, reservarla (agregar al localStorage y aplicar el estilo)
+            userClasses[username].push({ dia, hora, clase, idClase });
+            localStorage.setItem('userClasses', JSON.stringify(userClasses));
+
+            // Cambiar el color de la celda a verde para indicar que está reservada
+            cell.style.backgroundColor = '#4CAF50'; // Cambiar color a verde
+            cell.style.color = '#fff'; // Texto blanco para resaltar
+            alert(`¡Te has apuntado a la clase de ${clase} el ${dia} a las ${hora}!`);
+        }
+    } else {
+        // Si el usuario no está logueado, redirigir al login
+        alert("Por favor, inicia sesión para apuntarte a las clases.");
+        window.location.href = "login.html";  // Redirigir al login
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+        const userClasses = JSON.parse(localStorage.getItem('userClasses')) || {};
+        if (userClasses[username]) {
+            userClasses[username].forEach(userClass => {
+                const reservedCell = document.getElementById(`clase_${userClass.idClase}`);
+                if (reservedCell) {
+                    reservedCell.style.backgroundColor = '#2ecc71'; // Color verde cuando la clase está reservada
+                    reservedCell.style.color = '#fff'; // Texto blanco para resaltar
+                }
             });
+        }
+    } 
+});
+
+
+// Función para aplicar el filtro de categorías y mantener las clases reservadas
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        const cells = document.querySelectorAll('td');
+
+        // Resalta las celdas de la categoría seleccionada
+        cells.forEach(cell => {
+            // Añadir la clase de categoría a las celdas
+            if (cell.classList.contains(category)) {
+                cell.style.backgroundColor = '#f1948a';  // Resaltar las celdas de la categoría
+            } else {
+                cell.style.backgroundColor = '';  // Eliminar resaltado de otras celdas
+            }
         });
+
+        // Aplicar color verde a las clases ya reservadas
+        const userClasses = JSON.parse(localStorage.getItem('userClasses')) || {};
+        const username = localStorage.getItem('username');
+        if (username && userClasses[username]) {
+            userClasses[username].forEach(userClass => {
+                const reservedCell = document.getElementById(`clase_${userClass.idClase}`);
+                if (reservedCell) {
+                    reservedCell.style.backgroundColor = '#4CAF50'; // Mantener verde
+                    reservedCell.style.color = '#fff'; // Mantener texto blanco
+                }
+            });
+        }
+    });
+});
+
+
     </script>
-    
 
     <!-- Class Timetable End -->
     <!-- Ejercicios Detallados por Categoría -->
@@ -201,22 +280,26 @@
                         </button>
                     </h5>
                 </div>
-                <div id="collapsePecho" class="collapse show" aria-labelledby="headingPecho" data-parent="#exerciseAccordion">
+                <div id="collapsePecho" class="collapse" aria-labelledby="headingPecho" data-parent="#exerciseAccordion">
                     <div class="card-body">
                         <h5>Aperturas Peck Deck</h5>
                         <p>Este ejercicio trabaja los músculos pectorales utilizando una máquina específica para aperturas. Es ideal para aislamiento muscular.</p>
+                        <p><strong>Cómo hacerlo:</strong> Siéntate en la máquina y ajusta el asiento para que tus brazos estén al nivel del pecho. Agarra las manillas con las palmas hacia adelante. Con un movimiento controlado, abre los brazos hasta que estén a la altura de los hombros, luego regresa lentamente a la posición inicial, manteniendo siempre la tensión en los pectorales.</p>
                         <img src="img/aperturasPeckDeck.jpg" alt="Aperturas Peck Deck" class="img-fluid mb-3">
                         
                         <h5>Press de Banca</h5>
                         <p>El press de banca es un ejercicio básico para trabajar todo el pectoral mayor, usando barra o mancuernas.</p>
+                        <p><strong>Cómo hacerlo:</strong> Recuéstate en el banco plano y agarra la barra con las manos ligeramente más anchas que el ancho de los hombros. Baja la barra controladamente hasta el pecho, asegurándote de mantener los pies en el suelo y la espalda arqueada. Empuja la barra hacia arriba hasta que los codos estén completamente extendidos.</p>
                         <img src="img/pressDeBanca.jpg" alt="Press de Banca" class="img-fluid mb-3">
                         
                         <h5>Fondos en Paralelas</h5>
                         <p>Este ejercicio trabaja el pecho y los tríceps. Se realiza con el peso corporal o con peso adicional.</p>
+                        <p><strong>Cómo hacerlo:</strong> Colócate entre dos barras paralelas y agárralas con las manos. Baja tu cuerpo controladamente, flexionando los codos hasta que los brazos estén a un ángulo de 90 grados. Luego, empuja el cuerpo hacia arriba hasta que los codos estén completamente extendidos. Para más intensidad, puedes añadir peso con un cinturón.</p>
                         <img src="img/fondosParalelas.jpg" alt="Fondos en Paralelas" class="img-fluid mb-3">
                         
                         <h5>Press Inclinado</h5>
                         <p>Trabaja el pectoral superior, usando una inclinación para enfocar el esfuerzo en la parte alta del pecho.</p>
+                        <p><strong>Cómo hacerlo:</strong> Colócate en un banco inclinado, ajustado a un ángulo de 30-45 grados. Toma una barra o mancuernas y baja el peso hacia el pecho, manteniendo los codos a un ángulo de 45 grados. Empuja el peso hacia arriba hasta que los codos estén extendidos, contrayendo los pectorales superiores.</p>
                         <img src="img/pressInclinado.jpg" alt="Press Inclinado" class="img-fluid mb-3">
                     </div>
                 </div>
@@ -235,18 +318,22 @@
                     <div class="card-body">
                         <h5>Jalón al Pecho</h5>
                         <p>Un ejercicio básico para fortalecer los músculos de la espalda, enfocándose en el dorsal ancho. Usa una máquina con polea.</p>
+                        <p><strong>Cómo hacerlo:</strong> Siéntate en la máquina de jalón con los pies firmemente apoyados en el suelo. Agarra la barra con las manos un poco más anchas que los hombros y tira de la barra hacia tu pecho, manteniendo los codos hacia abajo y atrás. Baja lentamente la barra de nuevo, controlando el movimiento en todo momento.</p>
                         <img src="img/jalonAlPecho.jpg" alt="Jalón al Pecho" class="img-fluid mb-3">
                         
                         <h5>Remo Gironda</h5>
                         <p>El remo Gironda trabaja toda la espalda baja y los dorsales, utilizando una barra o polea con técnica específica.</p>
+                        <p><strong>Cómo hacerlo:</strong> Colócate con los pies firmemente en el suelo y la barra frente a ti. Con una ligera flexión de las rodillas, inclina tu torso hacia adelante mientras mantienes la espalda recta. Agarra la barra y tira de ella hacia tu abdomen, asegurándote de mantener los codos pegados al cuerpo. Regresa lentamente a la posición inicial.</p>
                         <img src="img/remoGironda.jpg" alt="Remo Gironda" class="img-fluid mb-3">
                         
                         <h5>Remo con Barra</h5>
                         <p>Ejercicio esencial para desarrollar la musculatura de la espalda media y baja, utilizando una barra con peso.</p>
+                        <p><strong>Cómo hacerlo:</strong> Con los pies a la altura de los hombros, flexiona ligeramente las rodillas y, manteniendo la espalda recta, inclina el torso hacia adelante. Toma la barra con un agarre por encima de las manos y, con los codos pegados al cuerpo, tira de la barra hacia el abdomen, concentrando el esfuerzo en los dorsales. Baja la barra controladamente.</p>
                         <img src="img/remoBarra.jpg" alt="Remo con Barra" class="img-fluid mb-3">
                         
                         <h5>Pull Over con Mancuerna</h5>
                         <p>El pull over trabaja tanto la espalda como el pecho, utilizando una mancuerna o barra para realizar el movimiento.</p>
+                        <p><strong>Cómo hacerlo:</strong> Recuéstate en un banco plano, sosteniendo una mancuerna con ambas manos. Baja la mancuerna hacia atrás, manteniendo los codos ligeramente doblados, hasta sentir un buen estiramiento en los pectorales y dorsales. Luego, levanta la mancuerna hacia arriba y hacia adelante, concentrando el esfuerzo en la parte superior de la espalda y el pecho.</p>
                         <img src="img/pullOverMancuerna.jpg" alt="Pull Over con Mancuerna" class="img-fluid mb-3">
                     </div>
                 </div>
@@ -265,18 +352,22 @@
                     <div class="card-body">
                         <h5>Sentadilla</h5>
                         <p>Un ejercicio compuesto esencial que trabaja los glúteos, cuádriceps y espalda baja. Usa una barra con peso.</p>
+                        <p><strong>Cómo hacerlo:</strong> Coloca una barra sobre tus trapecios, mantén los pies a la altura de los hombros. Flexiona las rodillas y baja el cuerpo hacia abajo, asegurándote de que las rodillas no sobrepasen los dedos de los pies. Mantén la espalda recta y la cabeza erguida. Baja hasta que los muslos estén paralelos al suelo y luego empuja hacia arriba.</p>
                         <img src="img/sentadilla.jpg" alt="Sentadilla" class="img-fluid mb-3">
                         
                         <h5>Prensa</h5>
                         <p>Trabaja principalmente los cuádriceps, glúteos y isquiotibiales utilizando una máquina de prensa inclinada.</p>
+                        <p><strong>Cómo hacerlo:</strong> Siéntate en la máquina de prensa con los pies firmemente apoyados en la plataforma. Empuja la plataforma hacia arriba para despejar los bloques de seguridad. Baja la plataforma controladamente hacia tus muslos, manteniendo los pies planos y las rodillas alineadas con los pies. Empuja nuevamente hacia arriba hasta la posición inicial.</p>
                         <img src="img/prensa.jpg" alt="Prensa" class="img-fluid mb-3">
                         
                         <h5>Extensión de Cuádriceps</h5>
                         <p>Ejercicio de aislamiento para fortalecer el músculo del cuádriceps en una máquina específica.</p>
+                        <p><strong>Cómo hacerlo:</strong> Siéntate en la máquina de extensión de cuádriceps, ajusta el asiento para que tus piernas queden a la altura de los cojines. Empuja el cojín hacia arriba, extendiendo las piernas, hasta que estén completamente rectas. Luego, baja controladamente el peso.</p>
                         <img src="img/extensionCuadriceps.jpg" alt="Extensión de Cuádriceps" class="img-fluid mb-3">
                         
                         <h5>Elevación de Talones</h5>
                         <p>Ejercicio que trabaja los gemelos, utilizando una máquina de elevación de talones o haciendo el ejercicio de pie con barra.</p>
+                        <p><strong>Cómo hacerlo:</strong> Colócate en la máquina de elevación de talones, o de pie con una barra sobre los hombros. Con los pies apoyados en una superficie elevada, eleva los talones lo más alto posible, contrayendo los gemelos. Baja lentamente hasta que los talones estén cerca del suelo.</p>
                         <img src="img/elevacionTalones.jpg" alt="Elevación de Talones" class="img-fluid mb-3">
                     </div>
                 </div>
@@ -295,18 +386,22 @@
                     <div class="card-body">
                         <h5>Elevaciones Laterales</h5>
                         <p>Ejercicio de aislamiento que trabaja el deltoides lateral para unos hombros más definidos y fuertes.</p>
+                        <p><strong>Cómo hacerlo:</strong> De pie, sostén una mancuerna en cada mano con los brazos a los lados. Con una ligera flexión de los codos, eleva los brazos hacia los lados hasta que estén al nivel de los hombros. Baja controladamente y repite el movimiento.</p>
                         <img src="img/elevacionesLaterales.jpg" alt="Elevaciones Laterales" class="img-fluid mb-3">
                         
                         <h5>Press Militar</h5>
                         <p>El press militar es un ejercicio compuesto fundamental para trabajar los hombros, usando barra o mancuernas.</p>
+                        <p><strong>Cómo hacerlo:</strong> Siéntate o ponte de pie con una barra sobre los hombros. Empuja la barra hacia arriba hasta que los codos estén completamente extendidos. Mantén el torso erguido y evita que la espalda se arqueé durante el movimiento.</p>
                         <img src="img/pressMilitar.jpg" alt="Press Militar" class="img-fluid mb-3">
                         
                         <h5>Elevaciones Frontales</h5>
                         <p>Este ejercicio trabaja la parte frontal del hombro, con mancuernas o barra.</p>
+                        <p><strong>Cómo hacerlo:</strong> De pie, toma una mancuerna en cada mano con las palmas hacia abajo. Eleva los brazos al frente, hasta que estén paralelos al suelo, y luego bájalos controladamente. Mantén una ligera flexión de los codos durante el movimiento.</p>
                         <img src="img/elevacionesFrontales.jpg" alt="Elevaciones Frontales" class="img-fluid mb-3">
                         
                         <h5>Face Pull</h5>
                         <p>El face pull es un ejercicio que trabaja los hombros posteriores y los músculos de la parte superior de la espalda.</p>
+                        <p><strong>Cómo hacerlo:</strong> Usa una cuerda en una máquina de polea alta. Agarra la cuerda con las manos en pronación, y tira de ella hacia tu rostro, separando las manos y manteniendo los codos altos. Regresa lentamente a la posición inicial.</p>
                         <img src="img/facePull.jpg" alt="Face Pull" class="img-fluid mb-3">
                     </div>
                 </div>
@@ -314,8 +409,6 @@
         </div>
     </div>
     
-
-
     
 
     <!-- Footer Start -->

@@ -4058,4 +4058,9 @@ body{min-width:992px!important}
     font-size: 16px; /* Tamaño del texto */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra del botón */
 }
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
 
